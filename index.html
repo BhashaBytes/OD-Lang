@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8" />
+  <title>OD-Lang: Odia Inspired Programming</title>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a href="https://bhashabytes.github.io/" class="site-logo" aria-label="BhashaBytes Home">
+    <img src="logo.png" alt="BhashaBytes Logo" />
+  </a>
+  <h1>OD-Lang: Odia-Inspired Programming</h1>
+
+  <div class="intro-card">
+    <p>
+      Welcome to <strong>OD-Lang</strong> – a programming language designed especially for Odia speakers!
+      OD-Lang makes coding more intuitive by using Odia words and their transliterations as keywords,
+      instead of English-based Python syntax. It’s beginner-friendly and runs fully on Python via a translation layer.
+    </p>
+    <p>
+      Write code below, run it instantly, and explore TL-Lang’s features with live examples. Learning programming
+      has never been this friendly!
+    </p>
+  </div>
+
+  <div class="container">
+    <textarea id="odCode" rows="10" placeholder="Type your Odia code here...">ଦେଖାନ୍ତୁ("ନମସ୍କାର OD-Lang!")</textarea>
+    <br>
+    <button onclick="runCode()">Run Code</button>
+    <pre id="output">Output will appear here...</pre>
+  </div>
+
+  <h2>Documentation & Examples</h2>
+  <div class="docs">
+    <h3>Print (ଦେଖାନ୍ତୁ / dekhantu)</h3>
+    <pre>ଦେଖାନ୍ତୁ("ନମସ୍କାର ବିଶ୍ୱ")</pre>
+
+    <h3>Functions (ପରିଭାଷକାର / paribhasakara)</h3>
+    <pre>ପରିଭାଷକାର ଯୋଗ(a, b):
+    ଫେରିଦାନ୍ତୁ a + b
+ଦେଖାନ୍ତୁ("ଫଳ =", ଯୋଗ(5, 3))</pre>
+
+    <h3>Input (ନେଅନ୍ତୁ / neantu)</h3>
+    <pre>a = int(ନେଅନ୍ତୁ("ପ୍ରଥମ ସଂଖ୍ୟା:"))
+b = int(ନେଅନ୍ତୁ("ଦ୍ୱିତୀୟ ସଂଖ୍ୟା:"))
+ଦେଖାନ୍ତୁ("ଯୋଗ =", a + b)</pre>
+
+    <h3>Conditionals</h3>
+    <pre>i = 5
+ଜୋଡି i > 3:
+    ଦେଖାନ୍ତୁ("i ବଡ଼")
+ନହିଲେଜୋଡି i == 3:
+    ଦେଖାନ୍ତୁ("i ସମାନ")
+ନହିଲେ:
+    ଦେଖାନ୍ତୁ("i ଛୋଟ")</pre>
+
+    <h3>Loops</h3>
+    <pre>ପାଇଁ x in [1,2,3]:
+    ଦେଖାନ୍ତୁ("x =", x)
+
+i = 0
+ଜେପୋରି i < 3:
+    ଦେଖାନ୍ତୁ("i =", i)
+    i += 1</pre>
+
+    <h3>Loop Control</h3>
+    <pre>ପାଇଁ x in [1,2,3]:
+    ଜୋଡି x == 2:
+        ଦେଖାନ୍ତୁ("ଦ୍ୱିତୀୟ ମିଳିଲା")
+        ଭଙ୍ଗିଦା
+    ନହିଲେ:
+        ଦେଖାନ୍ତୁ(x)</pre>
+
+    <h3>Booleans & None</h3>
+    <pre>ଜୋଡି ସତ୍ୟ:
+    ଦେଖାନ୍ତୁ("true")
+ନହିଲେଜୋଡି ମିଥ୍ୟା:
+    ଦେଖାନ୍ତୁ("false")
+ଦେଖାନ୍ତୁ("ଶୂନ୍ୟ =", କିଛିନାହିଁ)</pre>
+
+    <h3>Exceptions</h3>
+    <pre>ଚେଷ୍ଟାକରା:
+    1 / 0
+ଛାଡ ZeroDivisionError:
+    ଦେଖାନ୍ତୁ("ଶୂନ୍ୟରେ ଭାଗ ସମ୍ଭବ ନୁହେଁ")
+ସେସାରେ:
+    ଦେଖାନ୍ତୁ("ଏହା ସମାପ୍ତ")</pre>
+
+    <h3>Imports</h3>
+    <pre>ଆୟାତକାର math ରୂପେ m
+ଦେଖାନ୍ତୁ(m.sqrt(4))</pre>
+  </div>
+
+  <h2>OD-Lang Keywords</h2>
+  <div class="reference-box">
+    <table>
+      <thead>
+        <tr>
+          <th>Python</th>
+          <th>Odia Script</th>
+          <th>Transliteration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>print</td><td>ଦେଖାନ୍ତୁ</td><td>dekhantu</td></tr>
+        <tr><td>input</td><td>ନେଅନ୍ତୁ</td><td>neantu</td></tr>
+        <tr><td>if</td><td>ଜୋଡି</td><td>jodi</td></tr>
+        <tr><td>elif</td><td>ନହିଲେଜୋଡି</td><td>nahilejodi</td></tr>
+        <tr><td>else</td><td>ନହିଲେ</td><td>nahile</td></tr>
+        <tr><td>for</td><td>ପାଇଁ</td><td>pain</td></tr>
+        <tr><td>while</td><td>ଜେପୋରି</td><td>jepori</td></tr>
+        <tr><td>def</td><td>ପରିଭାଷକାର</td><td>paribhasakara</td></tr>
+        <tr><td>class</td><td>ଶ୍ରେଣୀ</td><td>sreni</td></tr>
+        <tr><td>return</td><td>ଫେରିଦାନ୍ତୁ</td><td>pheridianthu</td></tr>
+        <tr><td>break</td><td>ଭଙ୍ଗିଦା</td><td>bhangida</td></tr>
+        <tr><td>continue</td><td>ଜରିରଖ</td><td>jarirakh</td></tr>
+        <tr><td>import</td><td>ଆୟାତକାର</td><td>aayatkara</td></tr>
+        <tr><td>from</td><td>ରୁ</td><td>ru</td></tr>
+        <tr><td>as</td><td>ରୂପେ</td><td>rupe</td></tr>
+        <tr><td>with</td><td>ସହିତ</td><td>sahita</td></tr>
+        <tr><td>try</td><td>ଚେଷ୍ଟାକରା</td><td>chestakara</td></tr>
+        <tr><td>except</td><td>ଛାଡ</td><td>chhada</td></tr>
+        <tr><td>finally</td><td>ସେସାରେ</td><td>sesare</td></tr>
+        <tr><td>True</td><td>ସତ୍ୟ</td><td>satya</td></tr>
+        <tr><td>False</td><td>ମିଥ୍ୟା</td><td>mithya</td></tr>
+        <tr><td>None</td><td>କିଛିନାହିଁ</td><td>kichhinahi</td></tr>
+        <tr><td>or</td><td>କିମ୍ବା</td><td>kimba</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    let pyodideReady = false;
+    let pyodide;
+
+    async function loadPyodideAndPackages() {
+      pyodide = await loadPyodide();
+
+      pyodide.runPython(`
+import sys
+from js import document, prompt
+
+class OutputCatcher:
+    def write(self, s):
+        if s.strip():
+            document.getElementById("output").textContent += s + "\\n"
+    def flush(self): pass
+
+sys.stdout = OutputCatcher()
+sys.stderr = OutputCatcher()
+
+def input(msg=""):
+    resp = prompt(str(msg))
+    return "" if resp is None else str(resp)
+`);
+      pyodideReady = true;
+    }
+    loadPyodideAndPackages();
+
+    const mapping = {
+      "ଦେଖାନ୍ତୁ": "print", "dekhantu": "print",
+      "ନେଅନ୍ତୁ": "input", "neantu": "input",
+      "ଜୋଡି": "if", "jodi": "if",
+      "ନହିଲେଜୋଡି": "elif", "nahilejodi": "elif",
+      "ନହିଲେ": "else", "nahile": "else",
+      "ପାଇଁ": "for", "pain": "for",
+      "ଜେପୋରି": "while", "jepori": "while",
+      "ପରିଭାଷକାର": "def", "paribhasakara": "def",
+      "ଶ୍ରେଣୀ": "class", "sreni": "class",
+      "ଫେରିଦାନ୍ତୁ": "return", "pheridianthu": "return",
+      "ଭଙ୍ଗିଦା": "break", "bhangida": "break",
+      "ଜରିରଖ": "continue", "jarirakh": "continue",
+      "ଆୟାତକାର": "import", "aayatkara": "import",
+      "ରୁ": "from", "ru": "from",
+      "ରୂପେ": "as", "rupe": "as",
+      "ସହିତ": "with", "sahita": "with",
+      "ଚେଷ୍ଟାକରା": "try", "chestakara": "try",
+      "ଛାଡ": "except", "chhada": "except",
+      "ସେସାରେ": "finally", "sesare": "finally",
+      "ସତ୍ୟ": "True", "satya": "True",
+      "ମିଥ୍ୟା": "False", "mithya": "False",
+      "କିଛିନାହିଁ": "None", "kichhinahi": "None",
+      "କିମ୍ବା": "or", "kimba": "or"
+    };
+
+    function escapeRegExp(str) {
+      return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function translate(code) {
+      for (let od in mapping) {
+        const re = new RegExp(`(?<!\\w)${escapeRegExp(od)}(?!\\w)`, 'gu');
+        code = code.replace(re, mapping[od]);
+      }
+      return code;
+    }
+
+    async function runCode() {
+      if (!pyodideReady) {
+        alert("Pyodide is still loading...");
+        return;
+      }
+      document.getElementById("output").textContent = "";
+      const rawCode = document.getElementById("odCode").value;
+      const pyCode = translate(rawCode);
+
+      try {
+        await pyodide.runPythonAsync(pyCode);
+      } catch (err) {
+        document.getElementById("output").textContent += "Error: " + err + "\n";
+      }
+    }
+  </script>
+</body>
+</html>
